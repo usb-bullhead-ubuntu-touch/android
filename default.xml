@@ -6,10 +6,10 @@
   <remote  name="launchpad"
            fetch="ssh://git.launchpad.net/" />
   <remote  name="phablet"
-           fetch="../.."
+           fetch="https://code-review.phablet.ubuntu.com"
            revision="phablet-6.0.0_r1"
            review="code-review.phablet.ubuntu.com" />
-   <remote name="usb_github"
+  <remote name="usb_github"
            fetch="https://github.com/usb-bullhead-ubuntu-touch"
            revision="ubuntu-touch" />
   <default revision="refs/tags/android-6.0.0_r1"
