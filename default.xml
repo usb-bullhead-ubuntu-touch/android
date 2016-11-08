@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="aosp"
+           fetch="https://android.googlesource.com" />
+  <remote  name="launchpad"
+           fetch="ssh://git.launchpad.net/" />
+  <remote  name="phablet"
+           fetch="../.."
+           revision="phablet-6.0.0_r1"
+           review="code-review.phablet.ubuntu.com" />
+  <default revision="refs/tags/android-6.0.0_r1"
+           remote="aosp"
+           sync-j="4" />
+   <remote name="usb_github"
+           fetch="https://github.com/usb-bullhead-ubuntu-touch"
+           revision="ubuntu-touch" />
+
+
+  <project path="build" name="aosp/platform/build" groups="pdk" remote="phablet" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+  <project path="abi/cpp" name="platform/abi/cpp" groups="pdk" />
+  <project path="bionic" name="aosp/platform/bionic" groups="pdk" remote="phablet" />
+  <project path="bootable/recovery" name="aosp/platform/bootable/recovery" groups="pdk" remote="phablet" />
+  <project path="development" name="aosp/platform/development" groups="pdk-cw-fs,pdk-fs" remote="phablet" />
+<!--  <project path="device/asus/deb" name="device/asus/deb" groups="device,flo" />
+  <project path="device/asus/flo" name="aosp/device/asus/flo" groups="device,flo" remote="phablet" />
+  <project path="device/asus/flo-kernel" name="device/asus/flo-kernel" groups="device,flo" clone-depth="1" />
+  <project path="device/asus/fugu" name="device/asus/fugu" groups="device,fugu,broadcom_pdk" />
+  <project path="device/asus/fugu-kernel" name="device/asus/fugu-kernel" groups="device,fugu,broadcom_pdk" clone-depth="1" />
+  <project path="device/common" name="device/common" groups="pdk-cw-fs,pdk-fs" />
+-->
+  <project path="device/generic/arm64" name="device/generic/arm64" groups="pdk" />
+  <project path="device/generic/armv7-a-neon" name="device/generic/armv7-a-neon" groups="pdk" />
+  <project path="device/generic/common" name="device/generic/common" groups="pdk" />
+<!--
+  <project path="device/generic/goldfish" name="aosp/device/generic/goldfish" groups="pdk" remote="phablet" />
+  <project path="device/generic/mini-emulator-arm64" name="device/generic/mini-emulator-arm64" groups="pdk" />
+  <project path="device/generic/mini-emulator-armv7-a-neon" name="device/generic/mini-emulator-armv7-a-neon" groups="pdk" />
+  <project path="device/generic/mini-emulator-x86" name="device/generic/mini-emulator-x86" groups="pdk" />
+  <project path="device/generic/mini-emulator-x86_64" name="device/generic/mini-emulator-x86_64" groups="pdk" />
+  <project path="device/generic/qemu" name="device/generic/qemu" />
+  <project path="device/generic/x86" name="device/generic/x86" groups="pdk" />
+  <project path="device/generic/x86_64" name="device/generic/x86_64" groups="pdk" />
+  <project path="device/google/accessory/arduino" name="device/google/accessory/arduino" groups="device" />
+  <project path="device/google/accessory/demokit" name="device/google/accessory/demokit" groups="device" />
+  <project path="device/google/atv" name="device/google/atv" groups="device,fugu,broadcom_pdk,generic_fs" />
+  <project path="device/htc/flounder" name="device/htc/flounder" groups="device,flounder,broadcom_pdk" />
+  <project path="device/htc/flounder-kernel" name="device/htc/flounder-kernel" groups="device,flounder,broadcom_pdk" clone-depth="1" />
+-->
+  <project path="device/lge/bullhead" name="device-lge-bullhead" remote="usb_github" revision="ubuntu-touch" />
+<!--
+  <project path="device/lge/hammerhead" name="device/lge/hammerhead" groups="device,hammerhead,broadcom_pdk,generic_fs" />
+  <project path="device/lge/hammerhead-kernel" name="device/lge/hammerhead-kernel" groups="device,hammerhead,broadcom_pdk,generic_fs" clone-depth="1" /> 
+ <project path="device/moto/shamu" name="device/moto/shamu" groups="device,shamu,broadcom_pdk" />
+  <project path="device/moto/shamu-kernel" name="device/moto/shamu-kernel" groups="device,shamu,broadcom_pdk" clone-depth="1" />
+-->
+  <project path="device/sample" name="device/sample" groups="pdk" />
+  <project path="external/aac" name="platform/external/aac" groups="pdk" />
+  <project path="external/bison" name="platform/external/bison" groups="pdk" />
+  <project path="external/boringssl" name="platform/external/boringssl" groups="pdk" />
+  <project path="external/bzip2" name="platform/external/bzip2" groups="pdk" />
+  <project path="external/clang" name="platform/external/clang" groups="pdk" />
+  <project path="external/compiler-rt" name="platform/external/compiler-rt" groups="pdk" />
+  <project path="external/e2fsprogs" name="aosp/platform/external/e2fsprogs" groups="pdk" remote="phablet" />
+  <project path="external/expat" name="platform/external/expat" groups="pdk" />
+  <project path="external/f2fs-tools" name="platform/external/f2fs-tools" groups="pdk" />
+  <project path="external/flac" name="platform/external/flac" groups="pdk" />
+  <project path="external/freetype" name="platform/external/freetype" groups="pdk" />
+  <project path="external/giflib" name="platform/external/giflib" groups="pdk,qcom_msm8x26" />
+  <project path="external/gtest" name="platform/external/gtest" groups="pdk" />
+  <project path="external/harfbuzz_ng" name="platform/external/harfbuzz_ng" groups="pdk,qcom_msm8x26" />
+  <project path="external/icu" name="platform/external/icu" groups="pdk" />
+  <project path="external/jemalloc" name="platform/external/jemalloc" groups="pdk" />
+  <project path="external/jpeg" name="platform/external/jpeg" groups="pdk" />
+  <project path="external/jsmn" name="platform/external/jsmn" groups="pdk" />
+  <project path="external/libavc" name="platform/external/libavc" groups="pdk" />
+  <project path="external/libcxx" name="platform/external/libcxx" groups="pdk" />
+  <project path="external/libcxxabi" name="platform/external/libcxxabi" groups="pdk" />
+  <project path="external/libdrm" name="platform/external/libdrm" groups="pdk" />
+  <project path="external/libgsm" name="platform/external/libgsm" groups="pdk" />
+  <project path="external/liblzf" name="aosp/platform/external/liblzf" groups="pdk" remote="phablet" />
+  <project path="external/libmpeg2" name="platform/external/libmpeg2" groups="pdk" />
+  <project path="external/libnl" name="platform/external/libnl" groups="pdk" />
+  <project path="external/libogg" name="platform/external/libogg" groups="pdk" />
+  <project path="external/libopus" name="platform/external/libopus" groups="pdk" />
+  <project path="external/libpcap" name="platform/external/libpcap" groups="pdk,pdk-cw-fs,pdk-fs" />
+  <project path="external/libpng" name="aosp/platform/external/libpng" groups="pdk" remote="phablet" />
+  <project path="external/libselinux" name="platform/external/libselinux" groups="pdk" />
+  <project path="external/libunwind" name="platform/external/libunwind" groups="pdk" />
+  <project path="external/libvpx" name="platform/external/libvpx" groups="pdk" />
+  <project path="external/libxml2" name="platform/external/libxml2" groups="pdk-cw-fs,pdk-fs,libxml2" />
+  <project path="external/llvm" name="platform/external/llvm" groups="pdk" />
+  <project path="external/mdnsresponder" name="platform/external/mdnsresponder" groups="pdk" />
+  <project path="external/mksh" name="platform/external/mksh" groups="pdk" />
+  <project path="external/nanopb-c" name="platform/external/nanopb-c" groups="pdk" />
+  <project path="external/pcre" name="platform/external/pcre" groups="pdk" />
+  <project path="external/pdfium" name="platform/external/pdfium" groups="pdk" />
+  <project path="external/protobuf" name="aosp/platform/external/protobuf" groups="pdk" remote="phablet" />
+  <project path="external/safe-iop" name="platform/external/safe-iop" groups="pdk" />
+  <project path="external/scrypt" name="platform/external/scrypt" groups="pdk" />
+  <project path="external/selinux" name="platform/external/selinux" groups="pdk" />
+  <project path="external/sepolicy" name="platform/external/sepolicy" groups="pdk" />
+  <project path="external/sfntly" name="platform/external/sfntly" groups="pdk,qcom_msm8x26" />
+  <project path="external/skia" name="aosp/platform/external/skia" groups="pdk,qcom_msm8x26" remote="phablet" />
+  <project path="external/sonivox" name="platform/external/sonivox" groups="pdk" />
+  <project path="external/speex" name="platform/external/speex" groups="pdk" />
+  <project path="external/sqlite" name="platform/external/sqlite" groups="pdk" />
+  <project path="external/squashfs-tools" name="platform/external/squashfs-tools" groups="pdk" />
+  <project path="external/tinyalsa" name="platform/external/tinyalsa" groups="pdk" />
+  <project path="external/tinycompress" name="platform/external/tinycompress" groups="pdk" />
+  <project path="external/tinyxml" name="platform/external/tinyxml" groups="pdk" />
+  <project path="external/tinyxml2" name="platform/external/tinyxml2" groups="pdk" />
+  <project path="external/toybox" name="platform/external/toybox" groups="pdk" />
+  <project path="external/tremolo" name="platform/external/tremolo" groups="pdk" />
+  <project path="external/webp" name="platform/external/webp" groups="pdk,qcom_msm8x26" />
+  <project path="external/webrtc" name="platform/external/webrtc" groups="pdk" />
+  <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" groups="pdk" />
+  <project path="external/zlib" name="aosp/platform/external/zlib" groups="pdk" remote="phablet" />
+  <project path="external/zopfli" name="platform/external/zopfli" groups="pdk-cw-fs,pdk-fs" />
+  <project path="frameworks/av" name="aosp/platform/frameworks/av" groups="pdk" remote="phablet" />
+  <project path="frameworks/base" name="aosp/platform/frameworks/base" groups="pdk-cw-fs,pdk-fs" remote="phablet" />
+  <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" groups="pdk" />
+  <project path="frameworks/compile/slang" name="platform/frameworks/compile/slang" groups="pdk" />
+  <project path="frameworks/minikin" name="platform/frameworks/minikin" groups="pdk-cw-fs,pdk-fs" />
+  <project path="frameworks/native" name="aosp/platform/frameworks/native" groups="pdk" remote="phablet" />
+  <project path="frameworks/opt/emoji" name="platform/frameworks/opt/emoji" groups="pdk-cw-fs,pdk-fs" />
+  <project path="frameworks/opt/widget" name="platform/frameworks/opt/widget" groups="pdk-cw-fs,pdk-fs" />
+  <project path="frameworks/rs" name="aosp/platform/frameworks/rs" groups="pdk" remote="phablet" />
+  <project path="hardware/akm" name="platform/hardware/akm" />
+  <project path="hardware/broadcom/libbt" name="platform/hardware/broadcom/libbt" groups="pdk" />
+  <project path="hardware/broadcom/wlan" name="platform/hardware/broadcom/wlan" groups="pdk,broadcom_wlan" />
+  <project path="hardware/intel/audio_media" name="platform/hardware/intel/audio_media" groups="intel" />
+  <project path="hardware/intel/bootstub" name="platform/hardware/intel/bootstub" groups="intel" />
+  <project path="hardware/intel/common/bd_prov" name="platform/hardware/intel/common/bd_prov" groups="intel" />
+  <project path="hardware/intel/common/libmix" name="platform/hardware/intel/common/libmix" groups="intel" />
+  <project path="hardware/intel/common/libstagefrighthw" name="platform/hardware/intel/common/libstagefrighthw" groups="intel" />
+  <project path="hardware/intel/common/libva" name="platform/hardware/intel/common/libva" groups="intel" />
+  <project path="hardware/intel/common/libwsbm" name="platform/hardware/intel/common/libwsbm" groups="intel" />
+  <project path="hardware/intel/common/omx-components" name="platform/hardware/intel/common/omx-components" groups="intel" />
+  <project path="hardware/intel/common/utils" name="platform/hardware/intel/common/utils" groups="intel" />
+  <project path="hardware/intel/common/wrs_omxil_core" name="platform/hardware/intel/common/wrs_omxil_core" groups="intel" />
+  <project path="hardware/intel/img/hwcomposer" name="platform/hardware/intel/img/hwcomposer" groups="intel" />
+  <project path="hardware/intel/img/psb_headers" name="platform/hardware/intel/img/psb_headers" groups="intel" />
+  <project path="hardware/intel/img/psb_video" name="platform/hardware/intel/img/psb_video" groups="intel" />
+  <project path="hardware/intel/sensors" name="platform/hardware/intel/sensors" groups="intel_sensors" />
+  <project path="hardware/invensense" name="platform/hardware/invensense" groups="invensense" />
+  <project path="hardware/libhardware" name="platform/hardware/libhardware" groups="pdk" />
+  <project path="hardware/libhardware_legacy" name="aosp/platform/hardware/libhardware_legacy" groups="pdk" remote="phablet" />
+  <project path="hardware/marvell/bt" name="platform/hardware/marvell/bt" groups="marvell_bt" />
+  <project path="hardware/mediatek" name="platform/hardware/mediatek" groups="mediatek,mediatek_wear" />
+  <project path="hardware/nvidia/audio" name="platform/hardware/nvidia/audio" groups="nvidia_audio" />
+  <project path="hardware/qcom/audio" name="aosp/platform/hardware/qcom/audio" groups="qcom,qcom_audio" remote="phablet" />
+  <project path="hardware/qcom/bt" name="platform/hardware/qcom/bt" groups="qcom" />
+  <project path="hardware/qcom/camera" name="platform/hardware/qcom/camera" groups="qcom" />
+  <project path="hardware/qcom/display" name="aosp/platform/hardware/qcom/display" groups="pdk,qcom,qcom_display" remote="phablet" />
+  <project path="hardware/qcom/gps" name="platform/hardware/qcom/gps" groups="qcom,qcom_gps" />
+  <project path="hardware/qcom/keymaster" name="platform/hardware/qcom/keymaster" groups="qcom,qcom_keymaster" />
+  <project path="hardware/qcom/media" name="platform/hardware/qcom/media" groups="qcom" />
+  <project path="hardware/qcom/msm8960" name="platform/hardware/qcom/msm8960" groups="qcom_msm8960" />
+  <project path="hardware/qcom/msm8x26" name="platform/hardware/qcom/msm8x26" groups="qcom_msm8x26" />
+  <project path="hardware/qcom/msm8x27" name="platform/hardware/qcom/msm8x27" groups="qcom_msm8x27" />
+  <project path="hardware/qcom/msm8x74" name="platform/hardware/qcom/msm8x74" groups="pdk,qcom_msm8x74" />
+  <project path="hardware/qcom/msm8x84" name="platform/hardware/qcom/msm8x84" groups="qcom_msm8x84" />
+  <project path="hardware/qcom/msm8994" name="platform/hardware/qcom/msm8994" remote="aosp" revision="marshmallow-dr1.6-release" /> 
+  <project path="hardware/qcom/power" name="platform/hardware/qcom/power" groups="qcom" />
+  <project path="hardware/qcom/sensors" name="platform/hardware/qcom/sensors" groups="qcom" />
+  <project path="hardware/qcom/wlan" name="platform/hardware/qcom/wlan" groups="qcom_wlan" />
+  <project path="hardware/ril" name="aosp/platform/hardware/ril" groups="pdk" remote="phablet" />
+  <project path="hardware/ti/omap3" name="platform/hardware/ti/omap3" groups="omap3" />
+  <project path="hardware/ti/omap4-aah" name="platform/hardware/ti/omap4-aah" groups="omap4-aah" />
+  <project path="hardware/ti/omap4xxx" name="platform/hardware/ti/omap4xxx" groups="omap4" />
+  <project path="kernel/msm" name="kernel_msm" remote="usb_github" revision="android-msm-bullhead-3.10-marshmallow-dr1.6-ut" />
+  <project path="libcore" name="platform/libcore" groups="pdk" />
+  <project path="libnativehelper" name="platform/libnativehelper" groups="pdk" />
+  <project path="prebuilts/android-emulator" name="platform/prebuilts/android-emulator" groups="pdk-fs" clone-depth="1" />
+  <project path="prebuilts/clang/darwin-x86/host/3.6" name="platform/prebuilts/clang/darwin-x86/host/3.6" groups="pdk,darwin" />
+  <project path="prebuilts/clang/linux-x86/host/3.6" name="platform/prebuilts/clang/linux-x86/host/3.6" groups="pdk,linux" />
+  <project path="prebuilts/devtools" name="platform/prebuilts/devtools" groups="pdk-fs" />
+  <project path="prebuilts/gcc/darwin-x86/aarch64/aarch64-linux-android-4.9" name="platform/prebuilts/gcc/darwin-x86/aarch64/aarch64-linux-android-4.9" groups="pdk,darwin,arm" />
+  <project path="prebuilts/gcc/darwin-x86/arm/arm-eabi-4.8" name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.8" groups="pdk,darwin,arm" />
+  <project path="prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.9" name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.9" groups="pdk,darwin,arm" />
+  <project path="prebuilts/gcc/darwin-x86/host/headers" name="platform/prebuilts/gcc/darwin-x86/host/headers" groups="pdk,darwin" />
+  <project path="prebuilts/gcc/darwin-x86/host/i686-apple-darwin-4.2.1" name="platform/prebuilts/gcc/darwin-x86/host/i686-apple-darwin-4.2.1" groups="pdk,darwin" />
+  <project path="prebuilts/gcc/darwin-x86/x86/x86_64-linux-android-4.9" name="platform/prebuilts/gcc/darwin-x86/x86/x86_64-linux-android-4.9" groups="pdk,darwin,x86" />
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" groups="pdk,linux,arm" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" groups="pdk,linux,arm" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" groups="pdk,linux,arm" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.8" groups="pdk,linux" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8"  groups="pdk,linux" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-w64-mingw32-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-w64-mingw32-4.8" groups="pdk-fs" />
+  <project path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" name="platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" groups="pdk,linux,x86" />
+  <project path="prebuilts/libs/libedit" name="platform/prebuilts/libs/libedit" groups="pdk-cw-fs,pdk-fs" />
+  <project path="prebuilts/misc" name="platform/prebuilts/misc" groups="pdk" />
+  <project path="prebuilts/ndk" name="platform/prebuilts/ndk" groups="pdk" />
+  <project path="prebuilts/python/darwin-x86/2.7.5" name="platform/prebuilts/python/darwin-x86/2.7.5" groups="darwin,pdk,pdk-cw-fs,pdk-fs" />
+  <project path="prebuilts/python/linux-x86/2.7.5" name="platform/prebuilts/python/linux-x86/2.7.5" groups="linux,pdk,pdk-cw-fs,pdk-fs" />
+  <project path="prebuilts/qemu-kernel" name="platform/prebuilts/qemu-kernel" groups="pdk" clone-depth="1" />
+  <project path="prebuilts/sdk" name="platform/prebuilts/sdk" groups="pdk" />
+  <project path="prebuilts/tools" name="platform/prebuilts/tools" groups="pdk,tools" />
+  <project path="sdk" name="platform/sdk" groups="pdk-cw-fs,pdk-fs" />
+  <project path="system/bt" name="platform/system/bt" groups="pdk" />
+  <project path="system/core" name="aosp/platform/system/core" groups="pdk" remote="phablet" />
+  <project path="system/extras" name="aosp/platform/system/extras" groups="pdk" remote="phablet" />
+  <project path="system/gatekeeper" name="platform/system/gatekeeper" groups="pdk" />
+  <project path="system/keymaster" name="platform/system/keymaster" groups="pdk" />
+  <project path="system/media" name="platform/system/media" groups="pdk" />
+  <project path="system/netd" name="platform/system/netd" groups="pdk" />
+  <project path="system/security" name="platform/system/security" groups="pdk" />
+  <project path="system/vold" name="platform/system/vold" groups="pdk" />
+  <project path="tools/emulator" name="platform/tools/emulator" groups="notdefault,tools" />
+  <project path="tools/external/fat32lib" name="platform/tools/external/fat32lib" groups="tools" />
+
+  <!-- Ubuntu specific repos -->
+  <project path="external/busybox" name="CyanogenMod/android_external_busybox" remote="phablet" />
+  <project path="external/gpg" name="aosp/platform/external/gpg" remote="phablet" />
+  <project path="ubuntu/assets" name="ubuntu/assets" revision="refs/heads/master" remote="phablet" />
+  <project path="ubuntu/libhybris" name="ubuntu/hybris" remote="phablet" />
+  <project path="ubuntu/platform-api" name="ubuntu/platform-api" remote="phablet" />
+  <project path="ubuntu/upstart-property-watcher" name="ubuntu/upstart-property-watcher" remote="phablet" />
+  <project path="ubuntu/ubuntu_prebuilt_initrd_debs" name="ubuntu/initrd/ubuntu_prebuilt_initrd_debs" revision="refs/heads/master" remote="phablet" />
+  <project path="ubuntu/ubuntu_prebuilt_initrd" name="ubuntu/initrd/ubuntu_prebuilt_initrd" revision="refs/heads/master" remote="phablet" />
+  <project path="ubuntu/prebuilts" name="ubuntu/prebuilts" revision="refs/heads/master" remote="phablet" />
+
+</manifest>
