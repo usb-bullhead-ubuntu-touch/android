@@ -9,12 +9,12 @@
            fetch="../.."
            revision="phablet-6.0.0_r1"
            review="code-review.phablet.ubuntu.com" />
-  <default revision="refs/tags/android-6.0.0_r1"
-           remote="aosp"
-           sync-j="4" />
    <remote name="usb_github"
            fetch="https://github.com/usb-bullhead-ubuntu-touch"
            revision="ubuntu-touch" />
+  <default revision="refs/tags/android-6.0.0_r1"
+           remote="aosp"
+           sync-j="4" />
 
 
   <project path="build" name="aosp/platform/build" groups="pdk" remote="phablet" >
