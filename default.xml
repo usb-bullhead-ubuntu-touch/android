@@ -201,7 +201,7 @@
   <project path="prebuilts/tools" name="platform/prebuilts/tools" groups="pdk,tools" />
   <project path="sdk" name="platform/sdk" groups="pdk-cw-fs,pdk-fs" />
   <project path="system/bt" name="platform/system/bt" groups="pdk" />
-  <project path="system/core" name="aosp-platform-system-core" groups="pdk" remote="usb_github" />
+  <project path="system/core" name="aosp-platform-system-core" remote="usb_github" revision="phablet-6.x-ut" />
   <project path="system/extras" name="aosp/platform/system/extras" groups="pdk" remote="phablet" />
   <project path="system/gatekeeper" name="platform/system/gatekeeper" groups="pdk" />
   <project path="system/keymaster" name="platform/system/keymaster" groups="pdk" />
